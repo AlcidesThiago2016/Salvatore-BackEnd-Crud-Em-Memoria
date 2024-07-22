@@ -1,0 +1,15 @@
+{
+  "name": "salvatore-backend-crud-em-memoria",
+  "version": "1.0.0",
+  "description": "Projeto da Missão de Aprendizado da Profissão Dev BackEnd JavaScript, Nivel Iniciante: CRUD em Memória",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
