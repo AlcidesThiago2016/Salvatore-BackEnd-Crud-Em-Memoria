@@ -20,6 +20,11 @@ app.get('/personagem/:id', function(req, res) {
     // Acessar o item na lista usando o ID - 1
     const item = lista[id - 1]
 
+    // Checando se o item foi encontrado
+    if (!item){
+        return res.status(404).send('Item não encontrado.')
+    }
+
     // Enviando o item com resposta
     res.send(item)
 })
@@ -55,6 +60,11 @@ app.post('/personagem', function (req , res) {
 // Endpoint Update [PUT] /personagem/id:
 app.put('/personagem/:id', function (req, res) {
     const id = req.params.id
+
+    // Checando se o item existe na lista
+    if (!lists[id - 1]){
+        return res.status(404).send('Item não encontrado.')
+    }
 
     // Acessando o Body da requisição
     const body = req.body
