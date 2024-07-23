@@ -35,6 +35,16 @@ app.post('/personagem', function (req , res) {
     //Acessando a propriedade 'nome' do body
     const novoItem = body.nome
 
+    //Checa se o nome esta presente no Body
+    if (!novoItem){
+        return res.send('Corpo da requisição deve conter a propriedade nome. ')
+    }
+
+    //Checa se o novo item esta na lista
+    if (lista.includes(novoItem)){
+        return res.send('Esse item já eciste na lista.')
+    }
+
     //Adicionando na lista
     lista.push(novoItem)
 
@@ -51,6 +61,16 @@ app.put('/personagem/:id', function (req, res) {
 
     // Acessando a propriedade 'nome' do body
     const novoItem = body.nome
+
+    //Checa se o nome esta presente no Body
+    if (!novoItem){
+        return res.send('Corpo da requisição deve conter a propriedade nome. ')
+    }
+
+    //Checa se o novo item esta na lista
+    if (lista.includes(novoItem)){
+        return res.send('Esse item já eciste na lista.')
+    }
 
     // Atualizando a lista com o novoItem peli ID -1
     lista[id - 1] = novoItem
