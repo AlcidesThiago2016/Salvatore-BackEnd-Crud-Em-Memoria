@@ -29,6 +29,11 @@ app.get('/personagem/:id', function(req, res) {
     res.send(item)
 })
 
+app.get('/personagem/count', function (req, res) {
+    const totalItens = lista.length
+    res.send('Numero total de itens: ${totalItens}' )
+})
+
 // Sinalizando para o express que utilizaremos JSON no Body
 app.use(express.json())
 
