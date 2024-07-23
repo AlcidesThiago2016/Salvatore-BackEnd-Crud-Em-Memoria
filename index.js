@@ -37,19 +37,19 @@ app.post('/personagem', function (req , res) {
 
     //Checa se o nome esta presente no Body
     if (!novoItem){
-        return res.send('Corpo da requisição deve conter a propriedade nome. ')
+        return res.status(400).send('Corpo da requisição deve conter a propriedade nome. ')
     }
 
     //Checa se o novo item esta na lista
     if (lista.includes(novoItem)){
-        return res.send('Esse item já eciste na lista.')
+        return res.status(409).send('Esse item já eciste na lista.')
     }
 
     //Adicionando na lista
     lista.push(novoItem)
 
     //Exibindo uma mensagem de sucesso
-    res.send('Item adicionado com sucesso!' + novoItem)
+    res.status(201).send('Item adicionado com sucesso!' + novoItem)
 })
 
 // Endpoint Update [PUT] /personagem/id:
@@ -64,12 +64,12 @@ app.put('/personagem/:id', function (req, res) {
 
     //Checa se o nome esta presente no Body
     if (!novoItem){
-        return res.send('Corpo da requisição deve conter a propriedade nome. ')
+        return res.status(400).send('Corpo da requisição deve conter a propriedade nome. ')
     }
 
     //Checa se o novo item esta na lista
     if (lista.includes(novoItem)){
-        return res.send('Esse item já eciste na lista.')
+        return res.status(409).send('Esse item já eciste na lista.')
     }
 
     // Atualizando a lista com o novoItem peli ID -1
